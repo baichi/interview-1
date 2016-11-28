@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>interview</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                interview
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>angular</a><ul><li><a href="../../html/angular/封装指令.html">封装指令</a></li></ul></li><li><a href="#"><span></span>css</a><ul><li><a href="../../html/css/css基础.html">css基础</a></li><li><a href="../../html/css/css效果.html">css效果</a></li></ul></li><li><a href="#"><span></span>HR</a><ul></ul></li><li><a href="#"><span></span>html</a><ul><li class="active"><a href="../../html/html/HTML基础.html">HTML基础</a></li></ul></li><li><a href="#"><span></span>Javascript</a><ul><li><a href="../../html/Javascript/图形操作.html">图形操作</a></li><li><a href="../../html/Javascript/常用功能.html">常用功能</a></li><li><a href="../../html/Javascript/浏览器兼容.html">浏览器兼容</a></li></ul></li><li><a href="#"><span></span>react</a><ul></ul></li><li><a href="#"><span></span>reactnative</a><ul></ul></li><li><a href="#"><span></span>vue</a><ul></ul></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>综合面试</a><ul></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t01. DOM回流和DOM重绘">1. DOM回流和DOM重绘</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h3 id="t01. DOM&#x56DE;&#x6D41;&#x548C;DOM&#x91CD;&#x7ED8;">1. DOM&#x56DE;&#x6D41;&#x548C;DOM&#x91CD;&#x7ED8; <a href="#t01. DOM&#x56DE;&#x6D41;&#x548C;DOM&#x91CD;&#x7ED8;"> # </a></h3>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script>
+    $('.page-toc li').eq(0).children('a').addClass('red');
+    var arr = [];
+    $("h2,h3").each(function () {
+        $(this).attr('t',$(this).position().top);
+        arr.push($(this).position().top);
+    });
+    $(window).on('scroll', function () {
+        var cur = $(document).scrollTop();
+        for(var i = arr.length; i >=0;i--){
+            if(arr[i]<=cur){
+                break;
+            }
+        }
+        if(i===-1){
+            i = 0;
+        }
+        $('.page-toc li a').removeClass('red');
+        $('.page-toc li').eq(i).children('a').addClass('red')
+    });
+</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>interview</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                interview
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>angular</a><ul><li class="active"><a href="../../html/angular/封装指令.html">封装指令</a></li></ul></li><li><a href="#"><span></span>css</a><ul><li><a href="../../html/css/css基础.html">css基础</a></li><li><a href="../../html/css/css效果.html">css效果</a></li></ul></li><li><a href="#"><span></span>HR</a><ul></ul></li><li><a href="#"><span></span>html</a><ul><li><a href="../../html/html/HTML基础.html">HTML基础</a></li></ul></li><li><a href="#"><span></span>Javascript</a><ul><li><a href="../../html/Javascript/图形操作.html">图形操作</a></li><li><a href="../../html/Javascript/常用功能.html">常用功能</a></li><li><a href="../../html/Javascript/浏览器兼容.html">浏览器兼容</a></li></ul></li><li><a href="#"><span></span>react</a><ul></ul></li><li><a href="#"><span></span>reactnative</a><ul></ul></li><li><a href="#"><span></span>vue</a><ul></ul></li><li><a href="#"><span></span>前端工程化</a><ul></ul></li><li><a href="#"><span></span>综合面试</a><ul></ul></li></ul>    
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0实现一个自定义的按钮指令">实现一个自定义的按钮指令</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h3 id="t0&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6309;&#x94AE;&#x6307;&#x4EE4;">&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6309;&#x94AE;&#x6307;&#x4EE4; <a href="#t0&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6309;&#x94AE;&#x6307;&#x4EE4;"> # </a></h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; ng-app=&quot;gsAgular&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        .active{
+            background-color:pink;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+    &lt;mm_button title=&apos;&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&apos; img-icon=&apos;logo.png&apos; icon-size=&apos;50&apos; text-size=&apos;24&apos; flaged=&apos;false&apos; direction=&apos;v&apos;&gt;&lt;/mm_button&gt;
+&lt;/div&gt;
+&lt;script src=&quot;angular.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    //&lt;mm_button title=&apos;&#x70ED;&#x64AD;&#x7535;&#x5F71;&apos; imgIcon=&apos;home.png&apos; iconSize=&apos;10&apos; textSize=&apos;24&apos; flaged=&apos;false&apos; direction=&apos;v&apos;&gt;&lt;/mm_button&gt;
+    var myApp=angular.module(&apos;gsAgular&apos;,[]);
+    myApp.directive(&apos;mmButton&apos;,function(){
+        return{
+            restrict:&apos;E&apos;,
+            replace:true,
+            scope:{
+                title:&apos;@&apos;,
+                flaged:&apos;@&apos;
+            },
+            template:&quot;&lt;div ng-class=&apos;{active:flaged}&apos;&gt;&lt;span&gt;{{title}}&lt;/span&gt;&lt;/div&gt;&quot;,
+            link:function(scope,element,attrs){
+                element.css({&quot;font-size&quot;:attrs.textSize+&apos;px&apos;});
+                element.css({&quot;width&quot;:attrs.iconSize*2+&apos;px&apos;});
+                 if(attrs.direction==&apos;v&apos;){
+                     element.css(&apos;background&apos;,&apos;url(&apos;+attrs.imgIcon+&apos;) no-repeat 0 0&apos;);
+                     element.css(&apos;padding-top&apos;,attrs.iconSize+&apos;px&apos;);
+                }else if(attrs.direction==&apos;h&apos;){
+                     element.css(&apos;background&apos;,&apos;url(&apos;+attrs.imgIcon+&apos;) no-repeat 0 0&apos;);
+                     element.css(&apos;padding-left&apos;,attrs.iconSize+&apos;px&apos;);
+                }
+                element.on(&apos;click&apos;,function(){
+                    scope.$apply(function(){
+                        scope.flaged=!scope.flaged;
+                    });
+                })
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;html&gt;
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script>
+    $('.page-toc li').eq(0).children('a').addClass('red');
+    var arr = [];
+    $("h2,h3").each(function () {
+        $(this).attr('t',$(this).position().top);
+        arr.push($(this).position().top);
+    });
+    $(window).on('scroll', function () {
+        var cur = $(document).scrollTop();
+        for(var i = arr.length; i >=0;i--){
+            if(arr[i]<=cur){
+                break;
+            }
+        }
+        if(i===-1){
+            i = 0;
+        }
+        $('.page-toc li a').removeClass('red');
+        $('.page-toc li').eq(i).children('a').addClass('red')
+    });
+</script>
+</html>

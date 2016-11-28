@@ -15,7 +15,48 @@
     "idoc": {
         "theme": "doc",
         "md": [
-            "index.md"
+            "index.md",
+            {
+                "angular": [
+                    "封装指令.md"
+                ]
+            },
+            {
+                "css": [
+                    "css基础.md",
+                    "css效果.md"
+                ]
+            },
+            {
+                "HR": []
+            },
+            {
+                "html": [
+                    "HTML基础.md"
+                ]
+            },
+            {
+                "Javascript": [
+                    "图形操作.md",
+                    "常用功能.md",
+                    "浏览器兼容.md"
+                ]
+            },
+            {
+                "react": []
+            },
+            {
+                "reactnative": []
+            },
+            {
+                "vue": []
+            },
+            {
+                "前端工程化": []
+            },
+            {
+                "综合面试": []
+            }
         ]
     }
 }
